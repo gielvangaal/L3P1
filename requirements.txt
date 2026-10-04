@@ -1,0 +1,10 @@
+# Data processing
+pandas
+numpy
+
+# Visualisatie
+matplotlib
+#seaborn
+
+# Excel ondersteuning
+openpyxl

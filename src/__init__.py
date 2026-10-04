@@ -1,0 +1,1 @@
+# __init__.py = speciaal Python-bestand dat aangeeft dat een map als een Python-package gebruikt wordt.
