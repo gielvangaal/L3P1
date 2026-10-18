@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"mark": {"type": "bar", "color": "#527FE8"}, "encoding": {"tooltip": [{"field": "Month", "title": "Month", "type": "nominal"}, {"field": "RevenueBn", "format": ".2f", "title": "Revenue ($bn)", "type": "quantitative"}], "x": {"field": "Month", "sort": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], "type": "nominal"}, "y": {"field": "RevenueBn", "title": "Revenue ($bn)", "type": "quantitative"}}, "name": "view_28cd8b4379fa3c07_0"}, {"mark": {"type": "line", "color": "#D94F4F", "point": true, "strokeWidth": 3}, "encoding": {"tooltip": [{"field": "Month", "title": "Month", "type": "nominal"}, {"field": "EstimatedDailyTemperature", "format": ".1f", "title": "Temperature (\u00b0C)", "type": "quantitative"}], "x": {"field": "Month", "sort": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], "type": "nominal"}, "y": {"field": "EstimatedDailyTemperature", "title": "Temperature (\u00b0C)", "type": "quantitative"}}}], "data": {"name": "data-aa3e76a2428f1d16de46f2c446e71daa"}, "height": 400, "params": [{"name": "param_1e9efca18e7a2868", "select": {"type": "interval", "encodings": ["x", "y"]}, "bind": "scales", "views": ["view_28cd8b4379fa3c07_0"]}], "resolve": {"scale": {"y": "independent"}}, "title": {"text": "Revenue vs Average Temperature", "subtitle": "US-CEO-5"}, "width": 900, "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json", "datasets": {"data-aa3e76a2428f1d16de46f2c446e71daa": [{"MonthOfYear": 1, "SalesAmount": 561216897.488, "EstimatedDailyTemperature": 2.681484187223276, "RevenueBn": 0.5612168974880001, "Month": "Jan"}, {"MonthOfYear": 2, "SalesAmount": 581500422.481, "EstimatedDailyTemperature": 3.436708248816768, "RevenueBn": 0.581500422481, "Month": "Feb"}, {"MonthOfYear": 3, "SalesAmount": 568366355.5638001, "EstimatedDailyTemperature": 7.437797912713472, "RevenueBn": 0.5683663555638001, "Month": "Mar"}, {"MonthOfYear": 4, "SalesAmount": 712634825.4136, "EstimatedDailyTemperature": 12.014972549019609, "RevenueBn": 0.7126348254136, "Month": "Apr"}, {"MonthOfYear": 5, "SalesAmount": 743555624.438, "EstimatedDailyTemperature": 16.309278304870336, "RevenueBn": 0.7435556244379999, "Month": "May"}, {"MonthOfYear": 6, "SalesAmount": 725464132.484, "EstimatedDailyTemperature": 19.66196274509804, "RevenueBn": 0.725464132484, "Month": "Jun"}, {"MonthOfYear": 7, "SalesAmount": 746564685.7739999, "EstimatedDailyTemperature": 21.589493991144845, "RevenueBn": 0.7465646857739999, "Month": "Jul"}, {"MonthOfYear": 8, "SalesAmount": 716846199.592, "EstimatedDailyTemperature": 21.317484187223275, "RevenueBn": 0.716846199592, "Month": "Aug"}, {"MonthOfYear": 9, "SalesAmount": 700042513.196, "EstimatedDailyTemperature": 18.163629411764706, "RevenueBn": 0.700042513196, "Month": "Sep"}, {"MonthOfYear": 10, "SalesAmount": 721896133.338, "EstimatedDailyTemperature": 13.088435167615435, "RevenueBn": 0.7218961333380001, "Month": "Oct"}, {"MonthOfYear": 11, "SalesAmount": 777311657.309, "EstimatedDailyTemperature": 8.194158823529412, "RevenueBn": 0.777311657309, "Month": "Nov"}, {"MonthOfYear": 12, "SalesAmount": 785824917.755, "EstimatedDailyTemperature": 3.894533206831119, "RevenueBn": 0.785824917755, "Month": "Dec"}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

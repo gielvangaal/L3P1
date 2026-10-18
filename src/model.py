@@ -29,17 +29,26 @@ def model_ceo_3(processed):
 # US-CEO-4
 # FactSales * ---> 1 DimStore
 # DimStore * ---> 1 DimGeography
+# DimGeography * ---> 1 DimCountry
 def model_ceo_4(processed):
     df = processed["sales"].merge(
-        processed["store"],
+        right=processed["store"],
         on="StoreKey",
         how="left"
     )
 
     df = df.merge(
-        processed["geography"],
+        right=processed["geography"],
         on="GeographyKey",
         how="left"
+    )
+
+    df = df.merge(
+        right=processed["country"],
+        left_on="RegionCountryName",
+        right_on="Country",
+        how="left",
+        validate="many_to_one"
     )
 
     return df

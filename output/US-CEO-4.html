@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_93ed7d062c11bb41c33ddc275c9ba4d9 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="
+        position: fixed;
+        top: 20px;
+        left: 60px;
+        z-index: 1000;
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px #999;
+        font-family: Arial;
+    ">
+        <b>Revenue by Country</b><br>
+        <small>US-CEO-4</small>
+        <hr>
+        <span style="color: #527FE8;">●</span>
+        Bubble size = Total Revenue
+    </div>
+    
+    
+            <div class="folium-map" id="map_93ed7d062c11bb41c33ddc275c9ba4d9" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_93ed7d062c11bb41c33ddc275c9ba4d9 = L.map(
+                "map_93ed7d062c11bb41c33ddc275c9ba4d9",
+                {
+                    center: [20.0, 0.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 2,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_c3a2f403588e6725cf9dfb49eb5a85fb = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_c3a2f403588e6725cf9dfb49eb5a85fb.addTo(map_93ed7d062c11bb41c33ddc275c9ba4d9);
+        
+    
+            var circle_marker_c736f8734237a0dfff4b2760aa282875 = L.circleMarker(
+                [40.0788725, 44.83659232558256],
+                {"bubblingMouseEvents": true, "color": "#527FE8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#527FE8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.4811120556609945, "stroke": true, "weight": 3}
+            ).addTo(map_93ed7d062c11bb41c33ddc275c9ba4d9);
+        
+    
+        var popup_0eff8a1624d6877740d6aca32cfac128 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_59fe1ba179dca7b1f32628f0a24a4de0 = $(`<div id="html_59fe1ba179dca7b1f32628f0a24a4de0" style="width: 100.0%; height: 100.0%;"><b>Armenia</b><br>Revenue: $26.08M</div>`)[0];
+                popup_0eff8a1624d6877740d6aca32cfac128.setContent(html_59fe1ba179dca7b1f32628f0a24a4de0);
+            
+        
+
+        circle_marker_c736f8734237a0dfff4b2760aa282875.bindPopup(popup_0eff8a1624d6877740d6aca32cfac128)
+        ;
+
+        
+    
+    
+            circle_marker_c736f8734237a0dfff4b2760aa282875.bindTooltip(
+                `<div>
+                     Armenia
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fe45036774d94f7e617c4e2391fde3bb = L.circleMarker(
+                [-24.922905999999998, 133.08112625],
+                {"bubblingMouseEvents": true, "color": "#527FE8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#527FE8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.580263172602298, "stroke": true, "weight": 3}
+            ).addTo(map_93ed7d062c11bb41c33ddc275c9ba4d9);
+        
+    
+        var popup_bf7e04b0f4a2855db87c59ed82bd9b3a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1e99ee87012f91d89a421ebe72925a2b = $(`<div id="html_1e99ee87012f91d89a421ebe72925a2b" style="width: 100.0%; height: 100.0%;"><b>Australia</b><br>Revenue: $79.17M</div>`)[0];
+                popup_bf7e04b0f4a2855db87c59ed82bd9b3a.setContent(html_1e99ee87012f91d89a421ebe72925a2b);
+            
+        
+
+        circle_marker_fe45036774d94f7e617c4e2391fde3bb.bindPopup(popup_bf7e04b0f4a2855db87c59ed82bd9b3a)
+        ;
+
+        
+    
+    
+            circle_marker_fe45036774d94f7e617c4e2391fde3bb.bindTooltip(
+                `<div>
+                     Australia
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d75274817d8a01481d2c1cd3fec9a4ed = L.circleMarker(
+                [27.523971, 90.29573189172767],
+                {"bubblingMouseEvents": true, "color": "#527FE8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#527FE8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.589346574272262, "stroke": true, "weight": 3}
+            ).addTo(map_93ed7d062c11bb41c33ddc275c9ba4d9);
+        
+    
+        var popup_2d10ca447bec0d259c49aa9f3dc38527 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_2dea896d89b064e1cf7926f1903c8f5e = $(`<div id="html_2dea896d89b064e1cf7926f1903c8f5e" style="width: 100.0%; height: 100.0%;"><b>Bhutan</b><br>Revenue: $30.04M</div>`)[0];
+                popup_2d10ca447bec0d259c49aa9f3dc38527.setContent(html_2dea896d89b064e1cf7926f1903c8f5e);
+            
+        
+
+        circle_marker_d75274817d8a01481d2c1cd3fec9a4ed.bindPopup(popup_2d10ca447bec0d259c49aa9f3dc38527)
+        ;
+
+        
+    
+    
+            circle_marker_d75274817d8a01481d2c1cd3fec9a4ed.bindTooltip(
+                `<div>
+                     Bhutan
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9c1ca4f8b45f55b25d3ebea067da3934 = L.circleMarker(
+                [56.83692, -110.43087416114284],
+                {"bubblingMouseEvents": true, "color": "#527FE8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#527FE8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.8466150523773, "stroke": true, "weight": 3}
+            ).addTo(map_93ed7d062c11bb41c33ddc275c9ba4d9);
+        
+    
+        var popup_768dfe606d318c7c20841a046c505b08 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_87a04a6546d1411c43c231a24caa829b = $(`<div id="html_87a04a6546d1411c43c231a24caa829b" style="width: 100.0%; height: 100.0%;"><b>Canada</b><br>Revenue: $175.94M</div>`)[0];
+                popup_768dfe606d318c7c20841a046c505b08.setContent(html_87a04a6546d1411c43c231a24caa829b);
+            
+        
+
+        circle_marker_9c1ca4f8b45f55b25d3ebea067da3934.bindPopup(popup_768dfe606d318c7c20841a046c505b08)
+        ;
+
+        
+    
+    
+            circle_marker_9c1ca4f8b45f55b25d3ebea067da3934.bindTooltip(
+                `<div>
+                     Canada
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3602c4cef21e60ab4e722eef951cf04d = L.circleMarker(
+                [46.811949999999996, 8.427000864027601],
+                {"bubblingMouseEvents": true, "color": "#527FE8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#527FE8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.106136560071688, "stroke": true, "weight": 3}
+            ).addTo(map_93ed7d062c11bb41c33ddc275c9ba4d9);
+        
+    
+        var popup_5d993892de61cdfebf1c3f8ab7c7a978 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_916c13917d8e1cd5f9f6484d8835813f = $(`<div id="html_916c13917d8e1cd5f9f6484d8835813f" style="width: 100.0%; height: 100.0%;"><b>Switzerland</b><br>Revenue: $14.55M</div>`)[0];
+                popup_5d993892de61cdfebf1c3f8ab7c7a978.setContent(html_916c13917d8e1cd5f9f6484d8835813f);
+            
+        
+
+        circle_marker_3602c4cef21e60ab4e722eef951cf04d.bindPopup(popup_5d993892de61cdfebf1c3f8ab7c7a978)
+        ;
+
+        
+    
+    
+            circle_marker_3602c4cef21e60ab4e722eef951cf04d.bindTooltip(
+                `<div>
+                     Switzerland
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1d985b16790bdbe605a2b21fb602885d = L.circleMarker(
+                [36.903673, 98.603916726155],
+                {"bubblingMouseEvents": true, "color": "#527FE8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#527FE8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.458766706305363, "stroke": true, "weight": 3}
+            ).addTo(map_93ed7d062c11bb41c33ddc275c9ba4d9);
+        
+    
+        var popup_ba9aab600c8bc9482a339a36fdf6c65d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d5b7410d164c978727043d277a609829 = $(`<div id="html_d5b7410d164c978727043d277a609829" style="width: 100.0%; height: 100.0%;"><b>China</b><br>Revenue: $1,063.86M</div>`)[0];
+                popup_ba9aab600c8bc9482a339a36fdf6c65d.setContent(html_d5b7410d164c978727043d277a609829);
+            
+        
+
+        circle_marker_1d985b16790bdbe605a2b21fb602885d.bindPopup(popup_ba9aab600c8bc9482a339a36fdf6c65d)
+        ;
+
+        
+    
+    
+            circle_marker_1d985b16790bdbe605a2b21fb602885d.bindTooltip(
+                `<div>
+                     China
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2be4da44a8df2638817aab473b585237 = L.circleMarker(
+                [51.085126, 10.48122641050086],
+                {"bubblingMouseEvents": true, "color": "#527FE8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#527FE8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.46568396341948, "stroke": true, "weight": 3}
+            ).addTo(map_93ed7d062c11bb41c33ddc275c9ba4d9);
+        
+    
+        var popup_fe34999381b313c4a50a8a8915a35739 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f0dd5cea4f01d41938cb964075bc19ee = $(`<div id="html_f0dd5cea4f01d41938cb964075bc19ee" style="width: 100.0%; height: 100.0%;"><b>Germany</b><br>Revenue: $662.76M</div>`)[0];
+                popup_fe34999381b313c4a50a8a8915a35739.setContent(html_f0dd5cea4f01d41938cb964075bc19ee);
+            
+        
+
+        circle_marker_2be4da44a8df2638817aab473b585237.bindPopup(popup_fe34999381b313c4a50a8a8915a35739)
+        ;
+
+        
+    
+    
+            circle_marker_2be4da44a8df2638817aab473b585237.bindTooltip(
+                `<div>
+                     Germany
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_717c59ffdb8910600ce606d6b6c7d3d9 = L.circleMarker(
+                [56.274339, 9.260473945371352],
+                {"bubblingMouseEvents": true, "color": "#527FE8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#527FE8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.12980079495791, "stroke": true, "weight": 3}
+            ).addTo(map_93ed7d062c11bb41c33ddc275c9ba4d9);
+        
+    
+        var popup_c1eb46fe0d96677fa003d0079c5fd346 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_be0b22086243dad20302ad14947b27c2 = $(`<div id="html_be0b22086243dad20302ad14947b27c2" style="width: 100.0%; height: 100.0%;"><b>Denmark</b><br>Revenue: $15.18M</div>`)[0];
+                popup_c1eb46fe0d96677fa003d0079c5fd346.setContent(html_be0b22086243dad20302ad14947b27c2);
+            
+        
+
+        circle_marker_717c59ffdb8910600ce606d6b6c7d3d9.bindPopup(popup_c1eb46fe0d96677fa003d0079c5fd346)
+        ;
+
+        
+    
+    
+            circle_marker_717c59ffdb8910600ce606d6b6c7d3d9.bindTooltip(
+                `<div>
+                     Denmark
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_50aa53cc073972513963a0fdb37ac75a = L.circleMarker(
+                [39.8994765, -3.4765254824881637],
+                {"bubblingMouseEvents": true, "color": "#527FE8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#527FE8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.126163852609621, "stroke": true, "weight": 3}
+            ).addTo(map_93ed7d062c11bb41c33ddc275c9ba4d9);
+        
+    
+        var popup_bc58584923dea015745d464202228926 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0982222f9f7b77f5310d1868d802bee3 = $(`<div id="html_0982222f9f7b77f5310d1868d802bee3" style="width: 100.0%; height: 100.0%;"><b>Spain</b><br>Revenue: $15.08M</div>`)[0];
+                popup_bc58584923dea015745d464202228926.setContent(html_0982222f9f7b77f5310d1868d802bee3);
+            
+        
+
+        circle_marker_50aa53cc073972513963a0fdb37ac75a.bindPopup(popup_bc58584923dea015745d464202228926)
+        ;
+
+        
+    
+    
+            circle_marker_50aa53cc073972513963a0fdb37ac75a.bindTooltip(
+                `<div>
+                     Spain
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3031186f83b84288e00fd2e84ad3fe0e = L.circleMarker(
+                [46.70585, 2.1875885451133663],
+                {"bubblingMouseEvents": true, "color": "#527FE8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#527FE8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.040905005099425, "stroke": true, "weight": 3}
+            ).addTo(map_93ed7d062c11bb41c33ddc275c9ba4d9);
+        
+    
+        var popup_6824153ef7e31656fad5ffc8e12fa86d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_fa0ee564710c6f5a24d1bd975a670dae = $(`<div id="html_fa0ee564710c6f5a24d1bd975a670dae" style="width: 100.0%; height: 100.0%;"><b>France</b><br>Revenue: $433.93M</div>`)[0];
+                popup_6824153ef7e31656fad5ffc8e12fa86d.setContent(html_fa0ee564710c6f5a24d1bd975a670dae);
+            
+        
+
+        circle_marker_3031186f83b84288e00fd2e84ad3fe0e.bindPopup(popup_6824153ef7e31656fad5ffc8e12fa86d)
+        ;
+
+        
+    
+    
+            circle_marker_3031186f83b84288e00fd2e84ad3fe0e.bindTooltip(
+                `<div>
+                     France
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_37b9e3be9d9bebef0ee7fda0a11f4197 = L.circleMarker(
+                [54.3140935, -1.9116522800980051],
+                {"bubblingMouseEvents": true, "color": "#527FE8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#527FE8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.31014099816664, "stroke": true, "weight": 3}
+            ).addTo(map_93ed7d062c11bb41c33ddc275c9ba4d9);
+        
+    
+        var popup_eabe945caf33a1ecd60ffcba55a94e69 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c0aa69273dfe7acee0603d645b4cc446 = $(`<div id="html_c0aa69273dfe7acee0603d645b4cc446" style="width: 100.0%; height: 100.0%;"><b>United Kingdom</b><br>Revenue: $220.90M</div>`)[0];
+                popup_eabe945caf33a1ecd60ffcba55a94e69.setContent(html_c0aa69273dfe7acee0603d645b4cc446);
+            
+        
+
+        circle_marker_37b9e3be9d9bebef0ee7fda0a11f4197.bindPopup(popup_eabe945caf33a1ecd60ffcba55a94e69)
+        ;
+
+        
+    
+    
+            circle_marker_37b9e3be9d9bebef0ee7fda0a11f4197.bindTooltip(
+                `<div>
+                     United Kingdom
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d96b2ffbe69d4f2910f47600067230ce = L.circleMarker(
+                [39.070319, 21.952675845848113],
+                {"bubblingMouseEvents": true, "color": "#527FE8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#527FE8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.137834551577512, "stroke": true, "weight": 3}
+            ).addTo(map_93ed7d062c11bb41c33ddc275c9ba4d9);
+        
+    
+        var popup_ae64407bc963c132a62af720a81fbf1e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3d9ebe372af7b124f4284afaffe45cf9 = $(`<div id="html_3d9ebe372af7b124f4284afaffe45cf9" style="width: 100.0%; height: 100.0%;"><b>Greece</b><br>Revenue: $15.39M</div>`)[0];
+                popup_ae64407bc963c132a62af720a81fbf1e.setContent(html_3d9ebe372af7b124f4284afaffe45cf9);
+            
+        
+
+        circle_marker_d96b2ffbe69d4f2910f47600067230ce.bindPopup(popup_ae64407bc963c132a62af720a81fbf1e)
+        ;
+
+        
+    
+    
+            circle_marker_d96b2ffbe69d4f2910f47600067230ce.bindTooltip(
+                `<div>
+                     Greece
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6e086fd6f512edda8bb7accc9530ce5d = L.circleMarker(
+                [21.7867495, 80.2265066642212],
+                {"bubblingMouseEvents": true, "color": "#527FE8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#527FE8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.559110238492677, "stroke": true, "weight": 3}
+            ).addTo(map_93ed7d062c11bb41c33ddc275c9ba4d9);
+        
+    
+        var popup_90538676279c74666d477bdaa5f8883a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f9947c4e92f5b64b6eafc80857f243be = $(`<div id="html_f9947c4e92f5b64b6eafc80857f243be" style="width: 100.0%; height: 100.0%;"><b>India</b><br>Revenue: $77.87M</div>`)[0];
+                popup_90538676279c74666d477bdaa5f8883a.setContent(html_f9947c4e92f5b64b6eafc80857f243be);
+            
+        
+
+        circle_marker_6e086fd6f512edda8bb7accc9530ce5d.bindPopup(popup_90538676279c74666d477bdaa5f8883a)
+        ;
+
+        
+    
+    
+            circle_marker_6e086fd6f512edda8bb7accc9530ce5d.bindTooltip(
+                `<div>
+                     India
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_181066b002fecd136fdb605fdb5f7478 = L.circleMarker(
+                [53.4160625, -7.958241855109693],
+                {"bubblingMouseEvents": true, "color": "#527FE8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#527FE8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.116774169287339, "stroke": true, "weight": 3}
+            ).addTo(map_93ed7d062c11bb41c33ddc275c9ba4d9);
+        
+    
+        var popup_5ad0119657cf8fe278e37358241cf7fb = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a66fb4601a5a95601e0cc8f6969cef67 = $(`<div id="html_a66fb4601a5a95601e0cc8f6969cef67" style="width: 100.0%; height: 100.0%;"><b>Ireland</b><br>Revenue: $14.83M</div>`)[0];
+                popup_5ad0119657cf8fe278e37358241cf7fb.setContent(html_a66fb4601a5a95601e0cc8f6969cef67);
+            
+        
+
+        circle_marker_181066b002fecd136fdb605fdb5f7478.bindPopup(popup_5ad0119657cf8fe278e37358241cf7fb)
+        ;
+
+        
+    
+    
+            circle_marker_181066b002fecd136fdb605fdb5f7478.bindTooltip(
+                `<div>
+                     Ireland
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c34fda4e6fc0164e3dd78d6b48856435 = L.circleMarker(
+                [32.4216655, 54.07557958693951],
+                {"bubblingMouseEvents": true, "color": "#527FE8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#527FE8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.098431374657891, "stroke": true, "weight": 3}
+            ).addTo(map_93ed7d062c11bb41c33ddc275c9ba4d9);
+        
+    
+        var popup_d3c8829259ef170bb15d6e5f1e94efb4 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ee77511cda3b7e5291484bd44907ce93 = $(`<div id="html_ee77511cda3b7e5291484bd44907ce93" style="width: 100.0%; height: 100.0%;"><b>Iran</b><br>Revenue: $52.36M</div>`)[0];
+                popup_d3c8829259ef170bb15d6e5f1e94efb4.setContent(html_ee77511cda3b7e5291484bd44907ce93);
+            
+        
+
+        circle_marker_c34fda4e6fc0164e3dd78d6b48856435.bindPopup(popup_d3c8829259ef170bb15d6e5f1e94efb4)
+        ;
+
+        
+    
+    
+            circle_marker_c34fda4e6fc0164e3dd78d6b48856435.bindTooltip(
+                `<div>
+                     Iran
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c919019804f541c8011999fa33d51244 = L.circleMarker(
+                [42.4924865, 12.692034656122244],
+                {"bubblingMouseEvents": true, "color": "#527FE8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#527FE8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.161964705768831, "stroke": true, "weight": 3}
+            ).addTo(map_93ed7d062c11bb41c33ddc275c9ba4d9);
+        
+    
+        var popup_401d14a95c2c6d361ca432c3d3e98001 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_eedd1e11503a818b8e7bdecd4e781b02 = $(`<div id="html_eedd1e11503a818b8e7bdecd4e781b02" style="width: 100.0%; height: 100.0%;"><b>Italy</b><br>Revenue: $55.58M</div>`)[0];
+                popup_401d14a95c2c6d361ca432c3d3e98001.setContent(html_eedd1e11503a818b8e7bdecd4e781b02);
+            
+        
+
+        circle_marker_c919019804f541c8011999fa33d51244.bindPopup(popup_401d14a95c2c6d361ca432c3d3e98001)
+        ;
+
+        
+    
+    
+            circle_marker_c919019804f541c8011999fa33d51244.bindTooltip(
+                `<div>
+                     Italy
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4974ce940273f37755e39c5276c5e740 = L.circleMarker(
+                [43.462123500000004, 143.3376549117628],
+                {"bubblingMouseEvents": true, "color": "#527FE8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#527FE8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.707806451145869, "stroke": true, "weight": 3}
+            ).addTo(map_93ed7d062c11bb41c33ddc275c9ba4d9);
+        
+    
+        var popup_c28e1a22b0c8cfa382408cb425cb0be4 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_11df4220da3b78a717b96bc5aa9b1e9a = $(`<div id="html_11df4220da3b78a717b96bc5aa9b1e9a" style="width: 100.0%; height: 100.0%;"><b>Japan</b><br>Revenue: $163.47M</div>`)[0];
+                popup_c28e1a22b0c8cfa382408cb425cb0be4.setContent(html_11df4220da3b78a717b96bc5aa9b1e9a);
+            
+        
+
+        circle_marker_4974ce940273f37755e39c5276c5e740.bindPopup(popup_c28e1a22b0c8cfa382408cb425cb0be4)
+        ;
+
+        
+    
+    
+            circle_marker_4974ce940273f37755e39c5276c5e740.bindTooltip(
+                `<div>
+                     Japan
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6c1bc2eed71d06fd106a8f273f97e08f = L.circleMarker(
+                [41.224667999999994, 75.0697475160799],
+                {"bubblingMouseEvents": true, "color": "#527FE8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#527FE8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.466498554018319, "stroke": true, "weight": 3}
+            ).addTo(map_93ed7d062c11bb41c33ddc275c9ba4d9);
+        
+    
+        var popup_a25bef5dfc46f5b758944cae3fe437bc = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_163a97ac5253da7bc1a00dfb1b89943d = $(`<div id="html_163a97ac5253da7bc1a00dfb1b89943d" style="width: 100.0%; height: 100.0%;"><b>Kyrgyzstan</b><br>Revenue: $25.57M</div>`)[0];
+                popup_a25bef5dfc46f5b758944cae3fe437bc.setContent(html_163a97ac5253da7bc1a00dfb1b89943d);
+            
+        
+
+        circle_marker_6c1bc2eed71d06fd106a8f273f97e08f.bindPopup(popup_a25bef5dfc46f5b758944cae3fe437bc)
+        ;
+
+        
+    
+    
+            circle_marker_6c1bc2eed71d06fd106a8f273f97e08f.bindTooltip(
+                `<div>
+                     Kyrgyzstan
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e54baf11fa34c1ba15e3df8ac1f60288 = L.circleMarker(
+                [36.4604515, 128.01105076761786],
+                {"bubblingMouseEvents": true, "color": "#527FE8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#527FE8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.769203353575396, "stroke": true, "weight": 3}
+            ).addTo(map_93ed7d062c11bb41c33ddc275c9ba4d9);
+        
+    
+        var popup_15a36122655f9e65a4536ec3b3466678 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_665c6935b4c9fedb860e89f76edfebc1 = $(`<div id="html_665c6935b4c9fedb860e89f76edfebc1" style="width: 100.0%; height: 100.0%;"><b>South Korea</b><br>Revenue: $37.22M</div>`)[0];
+                popup_15a36122655f9e65a4536ec3b3466678.setContent(html_665c6935b4c9fedb860e89f76edfebc1);
+            
+        
+
+        circle_marker_e54baf11fa34c1ba15e3df8ac1f60288.bindPopup(popup_15a36122655f9e65a4536ec3b3466678)
+        ;
+
+        
+    
+    
+            circle_marker_e54baf11fa34c1ba15e3df8ac1f60288.bindTooltip(
+                `<div>
+                     South Korea
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1de652d0e9785cad8e66394c46c10019 = L.circleMarker(
+                [35.895005499999996, 14.438141250000005],
+                {"bubblingMouseEvents": true, "color": "#527FE8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#527FE8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.106481462545788, "stroke": true, "weight": 3}
+            ).addTo(map_93ed7d062c11bb41c33ddc275c9ba4d9);
+        
+    
+        var popup_0788184511b5289036492d34549b7a41 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7e288e7c6f05e991a7a5a75c91530ca7 = $(`<div id="html_7e288e7c6f05e991a7a5a75c91530ca7" style="width: 100.0%; height: 100.0%;"><b>Malta</b><br>Revenue: $14.56M</div>`)[0];
+                popup_0788184511b5289036492d34549b7a41.setContent(html_7e288e7c6f05e991a7a5a75c91530ca7);
+            
+        
+
+        circle_marker_1de652d0e9785cad8e66394c46c10019.bindPopup(popup_0788184511b5289036492d34549b7a41)
+        ;
+
+        
+    
+    
+            circle_marker_1de652d0e9785cad8e66394c46c10019.bindTooltip(
+                `<div>
+                     Malta
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ada9b41792176fd55674d1ba7542e974 = L.circleMarker(
+                [52.105632, 5.516406825024923],
+                {"bubblingMouseEvents": true, "color": "#527FE8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#527FE8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.118075002502991, "stroke": true, "weight": 3}
+            ).addTo(map_93ed7d062c11bb41c33ddc275c9ba4d9);
+        
+    
+        var popup_d13ad867cd8ff6b304c833e1f37cbba8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_51e6f379f98ba8e4dcba090e1a9abf66 = $(`<div id="html_51e6f379f98ba8e4dcba090e1a9abf66" style="width: 100.0%; height: 100.0%;"><b>the Netherlands</b><br>Revenue: $14.86M</div>`)[0];
+                popup_d13ad867cd8ff6b304c833e1f37cbba8.setContent(html_51e6f379f98ba8e4dcba090e1a9abf66);
+            
+        
+
+        circle_marker_ada9b41792176fd55674d1ba7542e974.bindPopup(popup_d13ad867cd8ff6b304c833e1f37cbba8)
+        ;
+
+        
+    
+    
+            circle_marker_ada9b41792176fd55674d1ba7542e974.bindTooltip(
+                `<div>
+                     the Netherlands
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ea45db4f6ac7011bf44f2f3895647179 = L.circleMarker(
+                [30.380059, 70.08668436143392],
+                {"bubblingMouseEvents": true, "color": "#527FE8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#527FE8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.932468923504938, "stroke": true, "weight": 3}
+            ).addTo(map_93ed7d062c11bb41c33ddc275c9ba4d9);
+        
+    
+        var popup_be6422b459081a7ffeff0f265b9127ea = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_de3cf12543b86b64b10f32554f80dfc8 = $(`<div id="html_de3cf12543b86b64b10f32554f80dfc8" style="width: 100.0%; height: 100.0%;"><b>Pakistan</b><br>Revenue: $44.41M</div>`)[0];
+                popup_be6422b459081a7ffeff0f265b9127ea.setContent(html_de3cf12543b86b64b10f32554f80dfc8);
+            
+        
+
+        circle_marker_ea45db4f6ac7011bf44f2f3895647179.bindPopup(popup_be6422b459081a7ffeff0f265b9127ea)
+        ;
+
+        
+    
+    
+            circle_marker_ea45db4f6ac7011bf44f2f3895647179.bindTooltip(
+                `<div>
+                     Pakistan
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a447ae36c5056a4216d898eafb923aa7 = L.circleMarker(
+                [51.919920000000005, 19.156272405439402],
+                {"bubblingMouseEvents": true, "color": "#527FE8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#527FE8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.128462841403996, "stroke": true, "weight": 3}
+            ).addTo(map_93ed7d062c11bb41c33ddc275c9ba4d9);
+        
+    
+        var popup_34402af65c751a57faf61a95eea91aa5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b8f9313f342c3cd1668ad4fc6cd4e95f = $(`<div id="html_b8f9313f342c3cd1668ad4fc6cd4e95f" style="width: 100.0%; height: 100.0%;"><b>Poland</b><br>Revenue: $15.14M</div>`)[0];
+                popup_34402af65c751a57faf61a95eea91aa5.setContent(html_b8f9313f342c3cd1668ad4fc6cd4e95f);
+            
+        
+
+        circle_marker_a447ae36c5056a4216d898eafb923aa7.bindPopup(popup_34402af65c751a57faf61a95eea91aa5)
+        ;
+
+        
+    
+    
+            circle_marker_a447ae36c5056a4216d898eafb923aa7.bindTooltip(
+                `<div>
+                     Poland
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_60beaf90ddfe134eb50aba92f7ba1bb1 = L.circleMarker(
+                [39.565077, -8.291572084069287],
+                {"bubblingMouseEvents": true, "color": "#527FE8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#527FE8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.120656716880343, "stroke": true, "weight": 3}
+            ).addTo(map_93ed7d062c11bb41c33ddc275c9ba4d9);
+        
+    
+        var popup_487c75f69da97961278abe969c6ade68 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c0e1a15a37a3fe954a424cca29aa2b8b = $(`<div id="html_c0e1a15a37a3fe954a424cca29aa2b8b" style="width: 100.0%; height: 100.0%;"><b>Portugal</b><br>Revenue: $14.93M</div>`)[0];
+                popup_487c75f69da97961278abe969c6ade68.setContent(html_c0e1a15a37a3fe954a424cca29aa2b8b);
+            
+        
+
+        circle_marker_60beaf90ddfe134eb50aba92f7ba1bb1.bindPopup(popup_487c75f69da97961278abe969c6ade68)
+        ;
+
+        
+    
+    
+            circle_marker_60beaf90ddfe134eb50aba92f7ba1bb1.bindTooltip(
+                `<div>
+                     Portugal
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f8a7d11fd7a377f90d6ae458587a24f2 = L.circleMarker(
+                [45.961692, 24.247825017216613],
+                {"bubblingMouseEvents": true, "color": "#527FE8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#527FE8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.137919365227434, "stroke": true, "weight": 3}
+            ).addTo(map_93ed7d062c11bb41c33ddc275c9ba4d9);
+        
+    
+        var popup_ff9649be8f3a95ce17a12b87fd60548c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_14ca6bcd67c51ac6d2ccde568661d2c9 = $(`<div id="html_14ca6bcd67c51ac6d2ccde568661d2c9" style="width: 100.0%; height: 100.0%;"><b>Romania</b><br>Revenue: $15.40M</div>`)[0];
+                popup_ff9649be8f3a95ce17a12b87fd60548c.setContent(html_14ca6bcd67c51ac6d2ccde568661d2c9);
+            
+        
+
+        circle_marker_f8a7d11fd7a377f90d6ae458587a24f2.bindPopup(popup_ff9649be8f3a95ce17a12b87fd60548c)
+        ;
+
+        
+    
+    
+            circle_marker_f8a7d11fd7a377f90d6ae458587a24f2.bindTooltip(
+                `<div>
+                     Romania
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6c46f165e278e03c00cd5bc8ca75f716 = L.circleMarker(
+                [59.464613, 88.3874717956696],
+                {"bubblingMouseEvents": true, "color": "#527FE8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#527FE8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.4367463177479145, "stroke": true, "weight": 3}
+            ).addTo(map_93ed7d062c11bb41c33ddc275c9ba4d9);
+        
+    
+        var popup_b4a299c5d1ee8c3275b2b7fd001b3ccd = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1bcba2c74342b77fd4b7fee446d1bee3 = $(`<div id="html_1bcba2c74342b77fd4b7fee446d1bee3" style="width: 100.0%; height: 100.0%;"><b>Russia</b><br>Revenue: $70.60M</div>`)[0];
+                popup_b4a299c5d1ee8c3275b2b7fd001b3ccd.setContent(html_1bcba2c74342b77fd4b7fee446d1bee3);
+            
+        
+
+        circle_marker_6c46f165e278e03c00cd5bc8ca75f716.bindPopup(popup_b4a299c5d1ee8c3275b2b7fd001b3ccd)
+        ;
+
+        
+    
+    
+            circle_marker_6c46f165e278e03c00cd5bc8ca75f716.bindTooltip(
+                `<div>
+                     Russia
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5e69926bbf16dd272df4733fa6015f67 = L.circleMarker(
+                [1.364549, 103.83054181081911],
+                {"bubblingMouseEvents": true, "color": "#527FE8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#527FE8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.462810062968245, "stroke": true, "weight": 3}
+            ).addTo(map_93ed7d062c11bb41c33ddc275c9ba4d9);
+        
+    
+        var popup_49a0b8555c731e3b687de853fd6a0074 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f8f1881b452c65b62f64dbd0c62bb310 = $(`<div id="html_f8f1881b452c65b62f64dbd0c62bb310" style="width: 100.0%; height: 100.0%;"><b>Singapore</b><br>Revenue: $25.44M</div>`)[0];
+                popup_49a0b8555c731e3b687de853fd6a0074.setContent(html_f8f1881b452c65b62f64dbd0c62bb310);
+            
+        
+
+        circle_marker_5e69926bbf16dd272df4733fa6015f67.bindPopup(popup_49a0b8555c731e3b687de853fd6a0074)
+        ;
+
+        
+    
+    
+            circle_marker_5e69926bbf16dd272df4733fa6015f67.bindTooltip(
+                `<div>
+                     Singapore
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c070fd0bfad0d02d30b0a8a778f7ddfc = L.circleMarker(
+                [46.1502075, 14.61593728848134],
+                {"bubblingMouseEvents": true, "color": "#527FE8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#527FE8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.125987356837298, "stroke": true, "weight": 3}
+            ).addTo(map_93ed7d062c11bb41c33ddc275c9ba4d9);
+        
+    
+        var popup_5c40b8320f28c9091ef7a33f745411b3 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_34a17f6279e53bbd8dbb97cb32f1e633 = $(`<div id="html_34a17f6279e53bbd8dbb97cb32f1e633" style="width: 100.0%; height: 100.0%;"><b>Slovenia</b><br>Revenue: $15.08M</div>`)[0];
+                popup_5c40b8320f28c9091ef7a33f745411b3.setContent(html_34a17f6279e53bbd8dbb97cb32f1e633);
+            
+        
+
+        circle_marker_c070fd0bfad0d02d30b0a8a778f7ddfc.bindPopup(popup_5c40b8320f28c9091ef7a33f745411b3)
+        ;
+
+        
+    
+    
+            circle_marker_c070fd0bfad0d02d30b0a8a778f7ddfc.bindTooltip(
+                `<div>
+                     Slovenia
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8c03e2fa5771a7de8a92d702b0065fb6 = L.circleMarker(
+                [62.1945255, 14.905117647691148],
+                {"bubblingMouseEvents": true, "color": "#527FE8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#527FE8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.115485619046086, "stroke": true, "weight": 3}
+            ).addTo(map_93ed7d062c11bb41c33ddc275c9ba4d9);
+        
+    
+        var popup_369d17adf7bcff7b20511129a27e7acb = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f7432d8422142e2194a655acb2b67fa6 = $(`<div id="html_f7432d8422142e2194a655acb2b67fa6" style="width: 100.0%; height: 100.0%;"><b>Sweden</b><br>Revenue: $14.80M</div>`)[0];
+                popup_369d17adf7bcff7b20511129a27e7acb.setContent(html_f7432d8422142e2194a655acb2b67fa6);
+            
+        
+
+        circle_marker_8c03e2fa5771a7de8a92d702b0065fb6.bindPopup(popup_369d17adf7bcff7b20511129a27e7acb)
+        ;
+
+        
+    
+    
+            circle_marker_8c03e2fa5771a7de8a92d702b0065fb6.bindTooltip(
+                `<div>
+                     Sweden
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d4883aaa58f3273ce24b7a03a79eb4b3 = L.circleMarker(
+                [34.8081325, 38.56182386276293],
+                {"bubblingMouseEvents": true, "color": "#527FE8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#527FE8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.954166767135755, "stroke": true, "weight": 3}
+            ).addTo(map_93ed7d062c11bb41c33ddc275c9ba4d9);
+        
+    
+        var popup_16fc501bbc134d5d7e88cd36776073b8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_65127b6b646da119940d6a241525103e = $(`<div id="html_65127b6b646da119940d6a241525103e" style="width: 100.0%; height: 100.0%;"><b>Syria</b><br>Revenue: $45.41M</div>`)[0];
+                popup_16fc501bbc134d5d7e88cd36776073b8.setContent(html_65127b6b646da119940d6a241525103e);
+            
+        
+
+        circle_marker_d4883aaa58f3273ce24b7a03a79eb4b3.bindPopup(popup_16fc501bbc134d5d7e88cd36776073b8)
+        ;
+
+        
+    
+    
+            circle_marker_d4883aaa58f3273ce24b7a03a79eb4b3.bindTooltip(
+                `<div>
+                     Syria
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0c4c4b00b316faa4362355cc56bb41b8 = L.circleMarker(
+                [13.032381, 101.69302326657181],
+                {"bubblingMouseEvents": true, "color": "#527FE8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#527FE8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.751601493546911, "stroke": true, "weight": 3}
+            ).addTo(map_93ed7d062c11bb41c33ddc275c9ba4d9);
+        
+    
+        var popup_c7e0e2c54a7621a6111a6f5e05d928f3 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_22e7adf14df890eabc4e97356fac7994 = $(`<div id="html_22e7adf14df890eabc4e97356fac7994" style="width: 100.0%; height: 100.0%;"><b>Thailand</b><br>Revenue: $36.48M</div>`)[0];
+                popup_c7e0e2c54a7621a6111a6f5e05d928f3.setContent(html_22e7adf14df890eabc4e97356fac7994);
+            
+        
+
+        circle_marker_0c4c4b00b316faa4362355cc56bb41b8.bindPopup(popup_c7e0e2c54a7621a6111a6f5e05d928f3)
+        ;
+
+        
+    
+    
+            circle_marker_0c4c4b00b316faa4362355cc56bb41b8.bindTooltip(
+                `<div>
+                     Thailand
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_93bfd9782ab4cfe5f0764d5e0984133c = L.circleMarker(
+                [38.966071, 59.01531608989899],
+                {"bubblingMouseEvents": true, "color": "#527FE8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#527FE8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.081850990491365, "stroke": true, "weight": 3}
+            ).addTo(map_93ed7d062c11bb41c33ddc275c9ba4d9);
+        
+    
+        var popup_011f180c0833c06f3fd3489c5b304548 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8be460b6204a774127ef87dcbd707d1b = $(`<div id="html_8be460b6204a774127ef87dcbd707d1b" style="width: 100.0%; height: 100.0%;"><b>Turkmenistan</b><br>Revenue: $51.54M</div>`)[0];
+                popup_011f180c0833c06f3fd3489c5b304548.setContent(html_8be460b6204a774127ef87dcbd707d1b);
+            
+        
+
+        circle_marker_93bfd9782ab4cfe5f0764d5e0984133c.bindPopup(popup_011f180c0833c06f3fd3489c5b304548)
+        ;
+
+        
+    
+    
+            circle_marker_93bfd9782ab4cfe5f0764d5e0984133c.bindTooltip(
+                `<div>
+                     Turkmenistan
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d227fdc14f6d1b64296dbbfca0a3b32a = L.circleMarker(
+                [23.6166495, 120.8279180795297],
+                {"bubblingMouseEvents": true, "color": "#527FE8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#527FE8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.491184372787551, "stroke": true, "weight": 3}
+            ).addTo(map_93ed7d062c11bb41c33ddc275c9ba4d9);
+        
+    
+        var popup_be950514a20ae32fd1483b9251b77cf2 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d533640b1ce76854bcef245155766eac = $(`<div id="html_d533640b1ce76854bcef245155766eac" style="width: 100.0%; height: 100.0%;"><b>Taiwan</b><br>Revenue: $26.44M</div>`)[0];
+                popup_be950514a20ae32fd1483b9251b77cf2.setContent(html_d533640b1ce76854bcef245155766eac);
+            
+        
+
+        circle_marker_d227fdc14f6d1b64296dbbfca0a3b32a.bindPopup(popup_be950514a20ae32fd1483b9251b77cf2)
+        ;
+
+        
+    
+    
+            circle_marker_d227fdc14f6d1b64296dbbfca0a3b32a.bindTooltip(
+                `<div>
+                     Taiwan
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_dad09c2b8ec3aaa013ae522a1a87fb3e = L.circleMarker(
+                [37.2463645, -99.69842767199692],
+                {"bubblingMouseEvents": true, "color": "#527FE8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#527FE8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 24.0, "stroke": true, "weight": 3}
+            ).addTo(map_93ed7d062c11bb41c33ddc275c9ba4d9);
+        
+    
+        var popup_4f4be5a7c5f78c91ba9df12789cf0b5e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1c9cf5ecc086565b156698f078bf745b = $(`<div id="html_1c9cf5ecc086565b156698f078bf745b" style="width: 100.0%; height: 100.0%;"><b>United States</b><br>Revenue: $4,756.35M</div>`)[0];
+                popup_4f4be5a7c5f78c91ba9df12789cf0b5e.setContent(html_1c9cf5ecc086565b156698f078bf745b);
+            
+        
+
+        circle_marker_dad09c2b8ec3aaa013ae522a1a87fb3e.bindPopup(popup_4f4be5a7c5f78c91ba9df12789cf0b5e)
+        ;
+
+        
+    
+    
+            circle_marker_dad09c2b8ec3aaa013ae522a1a87fb3e.bindTooltip(
+                `<div>
+                     United States
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

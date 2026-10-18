@@ -60,3 +60,12 @@ def validate_dim_store(df):
 def validate_dim_country(df):
     assert df["Country"].notna().all()
     assert df["Country"].is_unique
+    assert df["CountryISO3"].notna().all()
+    assert df["CountryISO3"].is_unique
+    assert df["CountryISO3"].str.fullmatch(r"[A-Z]{3}").all()
+
+
+# GEOJSON
+def validate_geojson(data):
+    assert data["type"] == "FeatureCollection"
+    assert isinstance(data["features"], list)

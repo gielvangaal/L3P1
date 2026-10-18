@@ -1,4 +1,5 @@
 import pandas as pd
+import pycountry
 
 
 # DIM DATE
@@ -131,6 +132,7 @@ def transform_dim_store(df):
 
 
 # DIM COUNTRY
+# DIM COUNTRY
 def transform_dim_country(dim_geography, fact_weather):
     countries = pd.concat([
         dim_geography["RegionCountryName"],
@@ -146,4 +148,24 @@ def transform_dim_country(dim_geography, fact_weather):
         .to_frame(name="Country")
     )
 
+    country_mapping = {
+        "Russia": "RUS",
+        "the Netherlands": "NLD"
+    }
+
+    def get_iso3(country):
+        if country in country_mapping:
+            return country_mapping[country]
+
+        return pycountry.countries.lookup(country).alpha_3
+
+    dim_country["CountryISO3"] = dim_country["Country"].apply(
+        get_iso3
+    )
+
     return dim_country
+
+
+# GEOJSON
+def transform_geojson(data):
+    return data

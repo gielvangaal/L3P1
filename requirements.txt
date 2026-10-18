@@ -1,10 +1,15 @@
 # Data processing
 pandas
 numpy
+pycountry
 
 # Visualisatie
 matplotlib
-#seaborn
+plotly
+folium
+shapely
+altair
+seaborn
 
 # Excel ondersteuning
 openpyxl

@@ -5,6 +5,7 @@ from src.validate import *
 from src.load import *
 from src.model import *
 from src.visuals import *
+from src.export import *
 
 
 # ------------------------------------------------------------
@@ -22,27 +23,31 @@ datasets = [
     ("promotion", extract_csv, transform_dim_promotion, validate_dim_promotion),
     ("sales", extract_csv, transform_fact_sales, validate_fact_sales),
     ("store", extract_csv, transform_dim_store, validate_dim_store),
+    ("countries_geojson", extract_geojson, transform_geojson, validate_geojson),
 ]
 
 processed = {}
 
 for name, extract, transform, validate in datasets:
+
     # Extract
-    df = extract(FILES[name]["raw"])
+    data = extract(path=FILES[name]["raw"])
 
     # Transform
-    df = transform(df)
+    data = transform(data)
 
     # Validate
-    validate(df)
+    validate(data)
 
-    # Bewaren voor gebruik in model.py
-    processed[name] = df
+    # Beschikbaar maken voor model.py
+    processed[name] = data
 
-    # Load naar data/processed
-    load_csv(
-        df,
-        FILES[name]["processed"]
+    # Opslaan als CSV of GeoJSON
+    load = load_geojson if name == "countries_geojson" else load_csv
+
+    load(
+        data=data,
+        path=FILES[name]["processed"]
     )
 
     print(f"{name} succesvol verwerkt.")
@@ -77,21 +82,69 @@ print("country succesvol verwerkt.")
 # ------------------------------------------------------------
 
 # CEO
-ceo_1 = model_ceo_1(processed)
-ceo_2 = model_ceo_2(processed)
-ceo_3 = model_ceo_3(processed)
-ceo_4 = model_ceo_4(processed)
-ceo_5 = model_ceo_5(processed)
+ceo_1 = model_ceo_1(processed=processed)
+ceo_2 = model_ceo_2(processed=processed)
+ceo_3 = model_ceo_3(processed=processed)
+ceo_4 = model_ceo_4(processed=processed)
+ceo_5 = model_ceo_5(processed=processed)
 
 # Filiaalmanager
 # StoreKey 1 wordt voorlopig gebruikt als testfiliaal
-fm_1 = model_fm_1(processed)
-fm_2 = model_fm_2(processed, 1)
-fm_3 = model_fm_3(processed, 1)
-fm_4 = model_fm_4(processed)
-fm_5 = model_fm_5(processed, 1)
+fm_1 = model_fm_1(processed=processed)
+fm_2 = model_fm_2(processed=processed, store_key=1)
+fm_3 = model_fm_3(processed=processed, store_key=1)
+fm_4 = model_fm_4(processed=processed)
+fm_5 = model_fm_5(processed=processed, store_key=1)
 
 print("Modellen succesvol opgebouwd.")
 
-# VISUALSSSS
-visual_ceo_1(ceo_1)
+# ------------------------------------------------------------
+# 4. Visualisaties genereren en exporteren
+# ------------------------------------------------------------
+
+# US-CEO-1
+export_matplotlib(
+    fig=visual_ceo_1(df=ceo_1),
+    filename="US-CEO-1.png"
+)
+
+# US-CEO-2
+export_plotly(
+    fig=visual_ceo_2(df=ceo_2),
+    filename="US-CEO-2.html"
+)
+
+# US-CEO-3
+export_matplotlib(
+    fig=visual_ceo_3(df=ceo_3),
+    filename="US-CEO-3.png"
+)
+
+# US-CEO-4
+export_folium(
+    map_object=visual_ceo_4(
+        df=ceo_4,
+        geojson=processed["countries_geojson"]
+    ),
+    filename="US-CEO-4.html"
+)
+
+# US-CEO-5
+export_altair(
+    chart=visual_ceo_5(df=ceo_5),
+    filename="US-CEO-5.html"
+)
+
+# US-FM-1
+export_matplotlib(
+    fig=visual_fm_1(df=fm_1, store_key=1),
+    filename="US-FM-1.png"
+)
+
+# US-FM-2
+export_plotly(
+    fig=visual_fm_2(df=fm_2),
+    filename="US-FM-2.html"
+)
+
+print("Visualisaties succesvol geëxporteerd.")

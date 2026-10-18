@@ -46,5 +46,9 @@ FILES = {
     },
     "country": {
         "processed": f"{PROCESSED_DIR}/dim_country.csv",
-    }
+    },
+    "countries_geojson": {
+        "raw": f"{RAW_DIR}/countries.geojson",
+        "processed": f"{PROCESSED_DIR}/countries.geojson",
+    },
 }
