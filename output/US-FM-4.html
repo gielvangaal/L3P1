@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"mark": {"type": "bar", "color": "#527FE8"}, "encoding": {"tooltip": [{"field": "Month", "title": "Month", "type": "ordinal"}, {"field": "SalesQuantity", "title": "Sales", "type": "quantitative"}], "x": {"field": "Month", "title": "Month", "type": "ordinal"}, "y": {"field": "SalesQuantity", "title": "Sales Quantity", "type": "quantitative"}}, "name": "view_01fa4cbcc20b49d4_0"}, {"mark": {"type": "line", "color": "#344C9C", "point": true, "strokeWidth": 3}, "encoding": {"tooltip": [{"field": "Month", "title": "Month", "type": "ordinal"}, {"field": "ReturnQuantity", "title": "Returns", "type": "quantitative"}], "x": {"field": "Month", "type": "ordinal"}, "y": {"field": "ReturnQuantity", "title": "Return Quantity", "type": "quantitative"}}}], "data": {"name": "data-7f24dece6b4351401f91528b588aae4f"}, "height": 400, "params": [{"name": "param_1e9efca18e7a2868", "select": {"type": "interval", "encodings": ["x", "y"]}, "bind": "scales", "views": ["view_01fa4cbcc20b49d4_0"]}], "resolve": {"scale": {"y": "independent"}}, "title": {"text": "Sales vs Returns over Time", "subtitle": "US-FM-4"}, "width": 900, "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json", "datasets": {"data-7f24dece6b4351401f91528b588aae4f": [{"Month": 1, "SalesQuantity": 3685, "ReturnQuantity": 68}, {"Month": 2, "SalesQuantity": 3679, "ReturnQuantity": 43}, {"Month": 3, "SalesQuantity": 3712, "ReturnQuantity": 44}, {"Month": 4, "SalesQuantity": 5525, "ReturnQuantity": 63}, {"Month": 5, "SalesQuantity": 6065, "ReturnQuantity": 69}, {"Month": 6, "SalesQuantity": 4850, "ReturnQuantity": 68}, {"Month": 7, "SalesQuantity": 6042, "ReturnQuantity": 47}, {"Month": 8, "SalesQuantity": 6702, "ReturnQuantity": 66}, {"Month": 9, "SalesQuantity": 5226, "ReturnQuantity": 36}, {"Month": 10, "SalesQuantity": 7145, "ReturnQuantity": 74}, {"Month": 11, "SalesQuantity": 7116, "ReturnQuantity": 57}, {"Month": 12, "SalesQuantity": 6608, "ReturnQuantity": 46}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
