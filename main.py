@@ -93,7 +93,7 @@ ceo_5 = model_ceo_5(processed=processed)
 fm_1 = model_fm_1(processed=processed)
 fm_2 = model_fm_2(processed=processed, store_key=1)
 fm_3 = model_fm_3(processed=processed, store_key=1)
-fm_4 = model_fm_4(processed=processed)
+fm_4 = model_fm_4(processed=processed, store_key=1)
 fm_5 = model_fm_5(processed=processed, store_key=1)
 
 print("Modellen succesvol opgebouwd.")
@@ -147,4 +147,21 @@ export_plotly(
     filename="US-FM-2.html"
 )
 
-print("Visualisaties succesvol geëxporteerd.")
+# US-FM-3
+export_matplotlib(
+    fig=visual_fm_3(df=fm_3),
+    filename="US-FM-3.png"
+)
+
+# US-FM-4
+export_altair(
+    chart=visual_fm_4(df=fm_4),
+    filename="US-FM-4.html"
+)
+
+export_plotly(
+    fig=visual_fm_5(df=fm_5),
+    filename="US-FM-5.html"
+)
+
+print("Visualisaties succesvol geëxporteerd.\n")

@@ -124,8 +124,10 @@ def model_fm_3(processed, store_key):
 
 # US-FM-4
 # FactSales
-def model_fm_4(processed):
-    return processed["sales"]
+def model_fm_4(processed, store_key):
+    return processed["sales"].loc[
+        processed["sales"]["StoreKey"] == store_key
+    ]
 
 
 # US-FM-5

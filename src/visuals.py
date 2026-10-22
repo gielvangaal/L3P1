@@ -3,7 +3,7 @@ import plotly.graph_objects as go # US-CEO-2, 3
 import folium # US-CEO-4
 import math # US-CEO-4
 import altair as alt # US-CEO-5
-import seaborn as sns # US-FM-1
+import seaborn as sns # US-FM-1, 3
 
 from src.measures import total_revenue, total_cost, profit # US-CEO-1, 2, 3
 from shapely.geometry import shape # US-CEO-4
@@ -121,6 +121,7 @@ def visual_ceo_2(df):
     )
 
     return fig
+
 
 # US-CEO-3
 def visual_ceo_3(df):
@@ -449,6 +450,265 @@ def visual_fm_2(df):
                 "showactive": True
             }
         ]
+    )
+
+    return fig
+
+
+# US-FM-3
+def visual_fm_3(df):
+    sales_by_product = (
+        df.groupby(by="ProductName")["SalesQuantity"]
+        .sum()
+        .sort_values(ascending=False)
+    )
+
+    top_5 = sales_by_product.head(5)
+    bottom_5 = sales_by_product.tail(5).sort_values(ascending=False)
+
+    fig, axes = plt.subplots(
+        nrows=1,
+        ncols=2,
+        figsize=(14, 6)
+    )
+
+    # Top 5
+    sns.barplot(
+        x=top_5.values,
+        y=top_5.index,
+        color="#527FE8",
+        ax=axes[0]
+    )
+
+    axes[0].set_title(label="Top 5 Products")
+    axes[0].set_xlabel(xlabel="Sales Quantity")
+    axes[0].set_ylabel(ylabel="")
+
+    # Bottom 5
+    sns.barplot(
+        x=bottom_5.values,
+        y=bottom_5.index,
+        color="#527FE8",
+        ax=axes[1]
+    )
+
+    axes[1].set_title(label="Bottom 5 Products")
+    axes[1].set_xlabel(xlabel="Sales Quantity")
+    axes[1].set_ylabel(ylabel="")
+
+    fig.suptitle(t="Product Performance", fontsize=14)
+    fig.text(
+        x=0.5,
+        y=0.93,
+        s="US-FM-3",
+        ha="center",
+        fontsize=9
+    )
+    fig.tight_layout()
+
+    return fig
+
+
+# US-FM-4
+def visual_fm_4(df):
+    data = df.copy()
+
+    data["Month"] = data["DateKey"].dt.month
+
+    monthly = (
+        data.groupby(by="Month", as_index=False)
+        .agg({
+            "SalesQuantity": "sum",
+            "ReturnQuantity": "sum"
+        })
+    )
+
+    # Verkochte producten
+    bars = alt.Chart(data=monthly).mark_bar(
+        color="#527FE8"
+    ).encode(
+        x=alt.X(
+            shorthand="Month:O",
+            title="Month"
+        ),
+        y=alt.Y(
+            shorthand="SalesQuantity:Q",
+            title="Sales Quantity"
+        ),
+        tooltip=[
+            alt.Tooltip("Month:O", title="Month"),
+            alt.Tooltip("SalesQuantity:Q", title="Sales")
+        ]
+    )
+
+    # Geretourneerde producten
+    line = alt.Chart(data=monthly).mark_line(
+        color="#344C9C",
+        point=True,
+        strokeWidth=3
+    ).encode(
+        x=alt.X(
+            shorthand="Month:O"
+        ),
+        y=alt.Y(
+            shorthand="ReturnQuantity:Q",
+            title="Return Quantity"
+        ),
+        tooltip=[
+            alt.Tooltip("Month:O", title="Month"),
+            alt.Tooltip("ReturnQuantity:Q", title="Returns")
+        ]
+    )
+
+    chart = alt.layer(
+        bars,
+        line
+    ).resolve_scale(
+        y="independent"
+    ).properties(
+        width=900,
+        height=400,
+        title={
+            "text": "Sales vs Returns over Time",
+            "subtitle": "US-FM-4"
+        }
+    ).interactive()
+
+    return chart
+
+
+# US-FM-5
+def visual_fm_5(df):
+    data = df.copy()
+
+    # Dagelijkse omzet en gemiddelde temperatuur
+    daily = (
+        data.groupby(by="DateKey", as_index=False)
+        .agg({
+            "SalesAmount": "sum",
+            "EstimatedDailyTemperature": "mean"
+        })
+        .sort_values(by="DateKey")
+    )
+
+    daily["Month"] = daily["DateKey"].dt.to_period("M")
+
+    # Maandoverzicht
+    monthly = (
+        daily.groupby(by="Month", as_index=False)
+        .agg({
+            "SalesAmount": "sum",
+            "EstimatedDailyTemperature": "mean"
+        })
+    )
+
+    monthly["Date"] = monthly["Month"].dt.to_timestamp()
+
+    fig = go.Figure()
+
+    # Maandoverzicht: standaard zichtbaar
+    fig.add_trace(go.Bar(
+        x=monthly["Date"],
+        y=monthly["SalesAmount"],
+        name="Total Revenue",
+        marker_color="#527FE8",
+        hovertemplate="Date: %{x|%d-%m-%Y}<br>Revenue: $%{y:,.2f}<extra></extra>",
+    ))
+
+    fig.add_trace(go.Scatter(
+        x=monthly["Date"],
+        y=monthly["EstimatedDailyTemperature"],
+        name="Average Temperature",
+        mode="lines+markers",
+        line=dict(color="#344C9C"),
+        yaxis="y2",
+        hovertemplate="Date: %{x|%d-%m-%Y}<br>Temperature: %{y:.2f} °C<extra></extra>",
+    ))
+
+    buttons = [{
+        "label": "All Months",
+        "method": "update",
+        "args": [
+            {"visible": [True, True] + [False] * (2 * len(monthly))},
+            {"title": "Revenue vs Temperature<br><sup>US-FM-5</sup>"}
+        ]
+    }]
+
+    # Dagelijkse gegevens per geselecteerde maand
+    for month in monthly["Month"]:
+        subset = daily.loc[daily["Month"] == month]
+
+        fig.add_trace(go.Bar(
+            x=subset["DateKey"],
+            y=subset["SalesAmount"],
+            name="Total Revenue",
+            marker_color="#527FE8",
+            hovertemplate="Date: %{x|%d-%m-%Y}<br>Revenue: $%{y:,.2f}<extra></extra>",
+            visible=False
+        ))
+
+        fig.add_trace(go.Scatter(
+            x=subset["DateKey"],
+            y=subset["EstimatedDailyTemperature"],
+            name="Average Temperature",
+            mode="lines+markers",
+            line=dict(color="#344C9C"),
+            yaxis="y2",
+            hovertemplate="Date: %{x|%d-%m-%Y}<br>Temperature: %{y:.2f} °C<extra></extra>",
+            visible=False
+        ))
+
+        visible = [False] * len(fig.data)
+        visible[-2:] = [True, True]
+
+        button = dict(
+            label=str(month),
+            method="update",
+            args=[
+                {"visible": visible},
+                {
+                    "title": f"Daily Revenue vs Temperature<br><sup>US-FM-5 | {month}</sup>",
+                    "xaxis.autorange": True,
+                    "yaxis.autorange": True,
+                    "yaxis2.autorange": True
+                }
+            ]
+        )
+
+        buttons.append(button)
+
+    # De eerdere knoppen aanvullen met de definitieve trace-lijst
+    total_traces = len(fig.data)
+
+    for button in buttons:
+        if button["label"] == "All Months":
+            button["args"][0]["visible"] = (
+                [True, True] + [False] * (total_traces - 2)
+            )
+        else:
+            current = button["args"][0]["visible"]
+            button["args"][0]["visible"] = (
+                current + [False] * (total_traces - len(current))
+            )
+
+    fig.update_layout(
+        title="Revenue vs Temperature<br><sup>US-FM-5</sup>",
+        xaxis_title="Date",
+        yaxis=dict(title="Revenue ($)"),
+        yaxis2=dict(
+            title="Temperature (°C)",
+            overlaying="y",
+            side="right"
+        ),
+        template="plotly_white",
+        barmode="overlay",
+        updatemenus=[{
+            "buttons": buttons,
+            "direction": "down",
+            "showactive": True,
+            "x": 1,
+            "y": 1.15
+        }]
     )
 
     return fig
