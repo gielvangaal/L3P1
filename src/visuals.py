@@ -1,13 +1,15 @@
-import matplotlib.pyplot as plt # US-CEO-1
-import plotly.graph_objects as go # US-CEO-2, 3
-import folium # US-CEO-4
-import math # US-CEO-4
-import altair as alt # US-CEO-5
-import seaborn as sns # US-FM-1, 3
+import math
 
-from src.measures import total_revenue, total_cost, profit # US-CEO-1, 2, 3
-from shapely.geometry import shape # US-CEO-4
-from branca.element import Element # US-CEO-4
+import altair as alt  # US-CEO-5, US-FM-4
+import folium  # US-CEO-4
+import matplotlib.pyplot as plt  # US-CEO-1, 3, US-FM-1, 3
+import plotly.graph_objects as go  # US-CEO-2, US-FM-2, 5
+import seaborn as sns  # US-FM-1, 3
+
+from branca.element import Element  # US-CEO-4
+from shapely.geometry import shape  # US-CEO-4
+
+from src.measures import total_revenue, total_cost, profit  # US-CEO-1, 3
 
 
 # subplots() maakt object aan van fig en ax;
