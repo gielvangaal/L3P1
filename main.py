@@ -7,9 +7,12 @@ from src.model import *
 from src.visuals import *
 from src.export import *
 
+print("\n#################################################################")
+print ("Start pipeline: van ruwe data naar inzicht")
+print("#################################################################")
 
 # ------------------------------------------------------------
-# 1. Brontabellen inlezen, transformeren, valideren en opslaan
+# 1.1) ETL: Brontabellen inlezen, transformeren, valideren en opslaan
 # ------------------------------------------------------------
 
 datasets = [
@@ -27,6 +30,8 @@ datasets = [
 ]
 
 processed = {}
+
+print ("\n1.1) Start ETL: brontabellen inlezen, transformeren, valideren en opslaan")
 
 for name, extract, transform, validate in datasets:
 
@@ -50,11 +55,11 @@ for name, extract, transform, validate in datasets:
         path=FILES[name]["processed"]
     )
 
-    print(f"{name} succesvol verwerkt.")
+    print(f"-> {name} succesvol verwerkt")
 
 
 # ------------------------------------------------------------
-# 2. DimCountry opbouwen
+# 1.2) DimCountry opbouwen
 # Koppeltabel tussen Geography en Weather
 # ------------------------------------------------------------
 
@@ -73,13 +78,16 @@ load_csv(
 # Ook beschikbaar maken voor later gebruik
 processed["country"] = dim_country
 
-print("country succesvol verwerkt.")
+print("-> country succesvol verwerkt.")
 
+print("\n-> ETL succesvol afgerond.")
 
 # ------------------------------------------------------------
-# 3. Modellen per user story opbouwen
+# 2) Modellen per user story opbouwen
 # model.py bevat alleen de benodigde relaties / merges
 # ------------------------------------------------------------
+
+print ("\n2. Modellen per user story opbouwen")
 
 # CEO
 ceo_1 = model_ceo_1(processed=processed)
@@ -96,11 +104,13 @@ fm_3 = model_fm_3(processed=processed, store_key=1)
 fm_4 = model_fm_4(processed=processed, store_key=1)
 fm_5 = model_fm_5(processed=processed, store_key=1)
 
-print("Modellen succesvol opgebouwd.")
+print("-> modellen succesvol opgebouwd.")
 
 # ------------------------------------------------------------
-# 4. Visualisaties genereren en exporteren
+# 3) Visualisaties genereren en exporteren
 # ------------------------------------------------------------
+
+print ("\n3) Visualisaties genereren en exporteren")
 
 # US-CEO-1
 export_matplotlib(
@@ -164,4 +174,9 @@ export_plotly(
     filename="US-FM-5.html"
 )
 
-print("Visualisaties succesvol geëxporteerd.\n")
+print("-> visualisaties succesvol geëxporteerd.\n")
+
+print("#################################################################")
+print("De pipeline heeft succesvol gedraaid.")
+print("-> alle output is te vinden in /l3p1/output/")
+print("#################################################################")
