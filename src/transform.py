@@ -132,7 +132,6 @@ def transform_dim_store(df):
 
 
 # DIM COUNTRY
-# DIM COUNTRY
 def transform_dim_country(dim_geography, fact_weather):
     countries = pd.concat([
         dim_geography["RegionCountryName"],
